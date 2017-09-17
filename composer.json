@@ -26,7 +26,7 @@
       "homepage": "https://github.com/tmtbe"
     }
   ],
-  "name": "tmtbe/swooledistributed",
+  "name": "chengshi9527/swooledistributed",
   "type": "library",
   "keywords": ["server", "swoole", "distributed"],
   "description": "In order to develop the api server",
