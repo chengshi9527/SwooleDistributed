@@ -17,6 +17,11 @@ class Miner
 {
 
     /**
+     * AND logical operator.
+     */
+    const LOGICAL_RAW = "RAW";
+
+    /**
      * INNER JOIN type.
      */
     const INNER_JOIN = "INNER JOIN";
@@ -1232,6 +1237,7 @@ class Miner
 
                         break;
 
+                    case self::LOGICAL_RAW:
                     case self::IS:
                     case self::IS_NOT:
                         $value = $criterion['value'];
@@ -1250,7 +1256,11 @@ class Miner
                         break;
                 }
 
-                $statement .= $criterion['column'] . " " . $criterion['operator'] . " " . $value;
+                if ($criterion['operator'] == self::LOGICAL_RAW) {
+                    $statement .= " " . $value . " ";
+                } else {
+                    $statement .= $criterion['column'] . " " . $criterion['operator'] . " " . $value;
+                }
             }
         }
 
